@@ -1,0 +1,26 @@
+.build/
+DerivedData/
+*.xcodeproj/
+*.xcworkspace/
+*.xcuserdata/
+*.dSYM/
+.DS_Store
+
+# Local packaged app/release artifacts
+*.app/
+*.app.zip
+*.zip
+*.tar.gz
+*.sha256
+
+# Logs and local state
+*.log
+.env
+.env.*
+state.db
+*.sqlite
+*.sqlite3
+
+# Editor
+.vscode/
+.idea/

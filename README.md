@@ -6,6 +6,8 @@ HermesTokenBar reads Hermes Agent's local SQLite session database in read-only m
 
 ## What it looks like
 
+![HermesTokenBar preview](assets/preview.svg)
+
 Status bar:
 
 ```text

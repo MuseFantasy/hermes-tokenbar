@@ -4,7 +4,14 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 source = root / "Sources" / "HermesTokenBar" / "main.swift"
 source_text = source.read_text(errors="ignore")
-files = [p for p in root.rglob("*") if p.is_file() and ".build" not in p.parts and ".git" not in p.parts and p.name != "check_release_hygiene.py"]
+files = [
+    p for p in root.rglob("*")
+    if p.is_file()
+    and ".build" not in p.parts
+    and ".git" not in p.parts
+    and "dist" not in p.parts
+    and p.name != "check_release_hygiene.py"
+]
 text_by_path = {p: p.read_text(errors="ignore") for p in files}
 all_text = "\n".join(text_by_path.values())
 

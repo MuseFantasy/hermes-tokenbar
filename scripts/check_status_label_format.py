@@ -7,7 +7,7 @@ text = main.read_text()
 
 required = [
     'statusItem.button?.title = "0.0M"',
-    'statusItem.button?.title = formatMillions(stats.today.totalTokens)',
+    'statusItem.button?.title = "D \\(formatMillions(stats.today.totalTokens))"',
     'addDisabled("Today total: \\(formatMillions(stats.today.totalTokens)) tokens", tone: .today)',
     'addDisabled("Month total: \\(formatMillions(stats.month.totalTokens)) tokens", tone: .month)',
     'addDisabled("  \\(item.model): \\(formatMillions(item.totalTokens))")',

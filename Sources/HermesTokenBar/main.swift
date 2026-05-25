@@ -55,11 +55,13 @@ final class HermesTokenBarController: NSObject, NSApplicationDelegate {
     }
 
     private func update(with stats: HermesTokenStats) {
-        statusItem.button?.title = formatMillions(stats.today.totalTokens)
-        log("updated: \(formatMillions(stats.today.totalTokens))")
+        statusItem.button?.title = "D \(formatMillions(stats.today.totalTokens))"
+        log("updated: D \(formatMillions(stats.today.totalTokens))")
         menu.removeAllItems()
 
         addDisabled("Hermes Token Bar")
+        addDisabled("Date: \(formatDay(stats.refreshedAt))", tone: .today)
+        addDisabled("Since: 00:00 local", tone: .secondary)
         addDisabled("Today total: \(formatMillions(stats.today.totalTokens)) tokens", tone: .today)
         addDisabled("  Input: \(formatDetailTokens(stats.today.llmInputTokens)) tokens", tone: .input)
         addDisabled("  Output: \(formatDetailTokens(stats.today.llmOutputTokens)) tokens", tone: .output)
@@ -168,6 +170,12 @@ final class HermesTokenBarController: NSObject, NSApplicationDelegate {
     private func formatDate(_ date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        return formatter.string(from: date)
+    }
+
+    private func formatDay(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: date)
     }
 
